@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+class MissionPage extends StatefulWidget {
+  MissionPage({Key key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _MissionPageState createState() => _MissionPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _MissionPageState extends State<MissionPage> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'This is Home page',
+              'This is Mission page',
             ),
             Text(
               '$_counter',

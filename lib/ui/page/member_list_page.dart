@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+class MemerListPage extends StatefulWidget {
+  MemerListPage({Key key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _MemerListPageState createState() => _MemerListPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _MemerListPageState extends State<MemerListPage> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'This is Home page',
+              'This is MemerList page',
             ),
             Text(
               '$_counter',
