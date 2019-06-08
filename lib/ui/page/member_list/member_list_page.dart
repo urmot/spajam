@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:spajam/ui/page/member_list/member_card.dart';
-import 'package:spajam/utils/uidata.dart';
 
 class MemerListPage extends StatelessWidget {
   Size deviceSize;
@@ -13,31 +12,54 @@ class MemerListPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             providerCard(
-              'https://lh3.ggpht.com/8-N_qLXgV-eNDQINqTR-Pzu5Y8DuH0Xjz53zoWq_IcBNpcxDL_gK4uS_MvXH00yN6nd4=s180-rw',
               this.image,
-              '苗字都 名前那世',
-              'myoujito.namaedayo@leverages.jp',
-              Icons.check_box_outline_blank,
+              'yuta muramoto',
+              '09000000000',
+              true,
+              '12',
+              false,
+              true,
+              false,
             ),
             providerCard(
-                'https://www.heapjet.com/wp-content/uploads/thumbs_dir/slack-new-logo-1uxw809vkbzqmnzaf8pxn6acl7do3zjl00jm0n0r6evw.png',
-                this.image,
-                '苗字都 名前那世',
-                '@mension-meidayo',
-                Icons.check_box),
-            providerCard(
-              'https://pbs.twimg.com/profile_images/1049500623828267009/CbNpGA1Z_400x400.jpg',
               this.image,
-              'myoujito.namaedayo',
-              '',
-              Icons.check_box,
+              'takeo kusama',
+              '09000000000',
+              true,
+              '34',
+              false,
+              false,
+              false,
             ),
             providerCard(
-              'https://pbs.twimg.com/profile_images/1049500623828267009/CbNpGA1Z_400x400.jpg',
               this.image,
-              'myoujito.namaedayo',
+              'takahiro motoyama',
+              '09000000000',
+              true,
+              '80',
+              true,
+              true,
+              false,
+            ),
+            providerCard(
+              this.image,
+              '09000000000',
+              'takuto kusakabe',
+              true,
+              '88',
+              true,
+              true,
+              true,
+            ),
+            providerCard(
+              this.image,
+              'keisuke taniai',
+              '09000000000',
+              false,
               '',
-              Icons.check_box_outline_blank,
+              false,
+              false,
+              false,
             ),
           ],
         ),

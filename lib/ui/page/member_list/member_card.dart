@@ -1,14 +1,16 @@
 import 'package:flutter/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:spajam/ui/widgets/helper.dart';
 
 Widget providerCard(
-  String providerImage,
   String memberImage,
   String memberName,
-  String memberSubName,
-  IconData singInIcon,
+  String memberNumber,
+  bool isActive,
+  String participationRate,
+  bool isParticipation,
+  bool isActiveHealth,
+  bool isActiveMap,
 ) =>
     Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -27,7 +29,9 @@ Widget providerCard(
                         child: Row(
                           children: <Widget>[
                             Icon(
-                              singInIcon,
+                              isActive
+                                  ? Icons.check_box
+                                  : Icons.check_box_outline_blank,
                             ),
                           ],
                         )),
@@ -58,7 +62,7 @@ Widget providerCard(
                                 ),
                                 space(height: 8),
                                 Text(
-                                  memberSubName,
+                                  memberNumber,
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.grey,
@@ -67,17 +71,96 @@ Widget providerCard(
                               ]),
                         ],
                       ),
-                    )
+                    ),
+                    Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                            padding:
+                                const EdgeInsets.fromLTRB(8.0, 16.0, 0, 4.0),
+                            child: Row(
+                              children: <Widget>[
+                                Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Icon(
+                                        Icons.tag_faces,
+                                        size: 21,
+                                        color: isActiveHealth
+                                            ? Colors.green
+                                            : Colors.grey,
+                                      )
+                                    ]),
+                                space(width: 16),
+                                Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        'Health',
+                                        style: TextStyle(
+                                          fontSize: 16.0,
+                                          color: isActiveHealth
+                                              ? Colors.green
+                                              : Colors.grey,
+                                        ),
+                                      ),
+                                    ]),
+                              ],
+                            ),
+                          ),
+                        ]),
+                    Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                            padding:
+                                const EdgeInsets.fromLTRB(8.0, 16.0, 0, 4.0),
+                            child: Row(
+                              children: <Widget>[
+                                Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Icon(
+                                        Icons.map,
+                                        size: 21,
+                                        color: isActiveMap
+                                            ? Colors.green
+                                            : Colors.grey,
+                                      )
+                                    ]),
+                                space(width: 16),
+                                Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        'Map',
+                                        style: TextStyle(
+                                          fontSize: 16.0,
+                                          color: isActiveMap
+                                              ? Colors.green
+                                              : Colors.grey,
+                                        ),
+                                      ),
+                                    ]),
+                              ],
+                            ),
+                          ),
+                        ]),
                   ],
                 ),
                 Container(
-                  padding: const EdgeInsets.all(8),
-                  child: Icon(
-                    FontAwesomeIcons.externalLinkAlt,
-                    size: 21.0,
-                    color: Colors.grey,
-                  ),
-                )
+                    padding: const EdgeInsets.all(8),
+                    child: Text(
+                      participationRate + '%',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: isParticipation ? Colors.grey : Colors.red,
+                      ),
+                    ))
               ],
             )),
       ),
