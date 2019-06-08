@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:spajam/utils/uidata.dart';
 
+
+// dead codeだが一応とっとく
 class SplashPage extends StatefulWidget {
   @override
   _SplashPageState createState() => new _SplashPageState();

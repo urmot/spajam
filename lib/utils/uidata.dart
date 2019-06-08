@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class UIData {
   //routes
-  static const String splashRoute = "/Splash";
+  // static const String splashRoute = "/Splash";
+  static const String loginRoute = "/Login";
   static const String homeRoute = "/Home";
 
   //strings
