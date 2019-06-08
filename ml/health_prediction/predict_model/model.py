@@ -14,11 +14,13 @@ def predict(request):
         ]
     )  # テストデータ
     result = clf.predict(t)  # => [3]
+    predict_rate = clf.predict_proba(t)
+    print(predict_rate)
     return {
         "id": "attend",
-        "predict": result[0],
-        "score": clf.score(t, 1)[0],
-        "percentage": clf.score(t, 1)[0] * 100
+        "predict": int(result[0]),
+        "score": float(predict_rate[0][0]),
+        "percentage": float(predict_rate[0][0] * 100)
     }
 
 

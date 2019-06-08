@@ -1,5 +1,6 @@
 from flask import escape
 import predict_model as pm
+import json
 
 
 def hello_http(request):
@@ -15,4 +16,4 @@ def hello_http(request):
     request_json = request.get_json(silent=True)
     result = pm.predict(request_json)
     print('you will be absent at {}!'.format(result))
-    return result
+    return (json.dumps(result), 200, {})
