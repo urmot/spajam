@@ -25,8 +25,11 @@ dependencies:
   cupertino_icons: ^0.1.2
   google_maps_flutter: ^0.5.16
   location: ^2.3.5
+  cloud_firestore:
   font_awesome_flutter:
   firebase_database:
+  firebase_storage:
+
 
 dev_dependencies:
   flutter_test:
