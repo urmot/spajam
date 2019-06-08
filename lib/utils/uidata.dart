@@ -8,7 +8,7 @@ class UIData {
   static const String homeRoute = "/Home";
 
   //strings
-  static const String appName = "Member Portfolio";
+  static const String appName = "Mission Impossible";
 
   //fonts
   static const String quickFont = "Quicksand";
