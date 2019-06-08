@@ -1,0 +1,4 @@
+
+
+def predict(request):
+    return "%"
