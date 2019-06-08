@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
@@ -29,6 +30,9 @@ class _MissionPageState extends State<MissionPage> {
       setState(() {
         currentLocation = result;
       });
+
+      print(currentLocation.latitude);
+      print(currentLocation.longitude);
     });
   }
 
@@ -47,24 +51,25 @@ class _MissionPageState extends State<MissionPage> {
     } else {
       return MaterialApp(
         home: Scaffold(
-          appBar: AppBar(
-            title: Text('Maps Sample App'),
-            backgroundColor: Colors.green[700],
-          ),
-          body: Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            child: GoogleMap(
-              onMapCreated: _onMapCreated,
-              initialCameraPosition: CameraPosition(
-                target: LatLng(35.6580339, 139.7016358),
-                zoom: 17.0,
-              ),
-              myLocationEnabled: true,
-              mapType: MapType.hybrid,
+            appBar: AppBar(
+              title: Text('Maps Sample App'),
+              backgroundColor: Colors.green[700],
             ),
-          ),
-        ),
+            body: Column(children: [
+              Container(
+                height: (MediaQuery.of(context).size.height) - 300,
+                width: MediaQuery.of(context).size.width,
+                child: GoogleMap(
+                  onMapCreated: _onMapCreated,
+                  initialCameraPosition: CameraPosition(
+                    target: LatLng(35.6580339, 139.7016358),
+                    zoom: 17.0,
+                  ),
+                  myLocationEnabled: true,
+                  mapType: MapType.hybrid,
+                ),
+              ),
+            ])),
       );
     }
   }
