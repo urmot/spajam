@@ -1,6 +1,9 @@
 from flask import escape
+import predict_model as pm
+import json
 
-def hello_http(request):
+
+def predict_attend(request):
     """HTTP Cloud Function.
     Args:
         request (flask.Request): The request object.
@@ -11,12 +14,6 @@ def hello_http(request):
         <http://flask.pocoo.org/docs/1.0/api/#flask.Flask.make_response>.
     """
     request_json = request.get_json(silent=True)
-    request_args = request.args
-
-    if request_json and 'name' in request_json:
-        name = request_json['name']
-    elif request_args and 'name' in request_args:
-        name = request_args['name']
-    else:
-        name = 'World'
-    return 'Hello {}!'.format(escape(name))
+    result = pm.predict(request_json)
+    print('you will be absent at {}!'.format(result))
+    return (json.dumps(result), 200, {})
