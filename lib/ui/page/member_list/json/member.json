@@ -1,0 +1,52 @@
+[
+  {
+    "image": "https://ca.slack-edge.com/T7KQHUNQ3-U7M0T2A3H-9db160da4099-72",
+    "name": "村本 雄太",
+    "tel": "09000000000",
+    "isActive": true,
+    "participationRate": "12",
+    "isParticipation": false,
+    "isActiveHealth": true,
+    "isActiveMap": false
+  },
+  {
+    "image": "https://ca.slack-edge.com/T7KQHUNQ3-UAXJ7JMLG-526200afb85f-72",
+    "name": "草間 豪雄",
+    "tel": "09000000000",
+    "isActive": true,
+    "participationRate": "34",
+    "isParticipation": false,
+    "isActiveHealth": false,
+    "isActiveMap": false
+  },
+  {
+    "image": "https://ca.slack-edge.com/T7KQHUNQ3-UAG3RV135-e279defef603-72",
+    "name": "本山 貴大",
+    "tel": "09000000000",
+    "isActive": true,
+    "participationRate": "80",
+    "isParticipation": true,
+    "isActiveHealth": true,
+    "isActiveMap": true
+  },
+  {
+    "image": "https://ca.slack-edge.com/T7KQHUNQ3-UHEMA36GY-5e2e4bc72dd1-72",
+    "name": "日下部 拓人",
+    "tel": "09000000000",
+    "isActive": true,
+    "participationRate": "88",
+    "isParticipation": true,
+    "isActiveHealth": true,
+    "isActiveMap": false
+  },
+  {
+    "image": "https://ca.slack-edge.com/T7KQHUNQ3-U7K917880-e2d75dfacb4e-72",
+    "name": "谷合 啓輔",
+    "tel": "09000000000",
+    "isActive": false,
+    "participationRate": "",
+    "isParticipation": false,
+    "isActiveHealth": false,
+    "isActiveMap": false
+  }
+]
