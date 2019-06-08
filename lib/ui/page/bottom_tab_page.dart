@@ -24,7 +24,9 @@ class _BottomTabPageState extends State<BottomTabPage> {
       body: PageView(
         children: <Widget>[
           HomePage(),
-          MemerListPage(),
+          MemerListPage(
+              image:
+                  'https://mosaic02.ztat.net/vgs/media/pdp-zoom/LE/22/1D/02/2A/12/LE221D022-A12@16.1.jpg'),
           MissionPage(),
           // Container(
           //   color: Colors.orangeAccent,
