@@ -11,6 +11,7 @@ class MemerListPage extends StatelessWidget {
   Widget body(BuildContext context) => SingleChildScrollView(
         child: Column(
           children: <Widget>[
+            // @TODO jsonからの出力に切り替える
             providerCard(
               this.image,
               'yuta muramoto',
