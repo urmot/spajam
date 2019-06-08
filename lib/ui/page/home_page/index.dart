@@ -58,7 +58,7 @@ Widget storyMembersCard(Size deviceSize) => SizedBox(
           elevation: 2.0,
           child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 2,
+              itemCount: 1,
               itemBuilder: (context, i) => Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: InkWell(
@@ -74,7 +74,7 @@ Widget storyMembersCard(Size deviceSize) => SizedBox(
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
                                     image: Image.network(
-                                            'https://mosaic02.ztat.net/vgs/media/pdp-zoom/LE/22/1D/02/2A/12/LE221D022-A12@16.1.jpg')
+                                            'https://ca.slack-edge.com/T7KQHUNQ3-UAG3RV135-e279defef603-72')
                                         .image,
                                   )),
                             ),
@@ -117,7 +117,7 @@ Widget projectOverviewCard() => Padding(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                "{プロジェクトタイトル}",
+                "深センに行く",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
