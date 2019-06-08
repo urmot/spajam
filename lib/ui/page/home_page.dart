@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spajam/ui/page/home_page/index.dart';
 import 'package:spajam/ui/widgets/helper.dart';
-import 'package:spajam/ui/widgets/round_background.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
