@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spajam/ui/page/login_page.dart';
 import 'package:spajam/ui/page/home_page.dart';
+import 'package:spajam/ui/page/test_page.dart';
 import 'package:spajam/ui/page/bottom_tab_page.dart';
 import 'package:spajam/utils/uidata.dart';
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
     // showPerformanceOverlay: false,
     // home: LoginPage(), // @todo 実際loginpageからスタートだが、開発時だるいので一旦コメントアウト
     home: BottomTabPage(projectId: 1),
+    // home: TestPage(),
     routes: <String, WidgetBuilder>{
       UIData.homeRoute: (BuildContext context) => BottomTabPage(projectId: 1),
     },
