@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spajam/ui/page/home_page.dart';
-import 'package:spajam/ui/page/member_list_page.dart';
+import 'package:spajam/ui/page/member_list/member_list_page.dart';
 import 'package:spajam/ui/page/mission_page.dart';
 
 class BottomTabPage extends StatefulWidget {
