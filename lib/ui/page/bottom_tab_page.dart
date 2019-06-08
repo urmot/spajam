@@ -43,16 +43,16 @@ class _BottomTabPageState extends State<BottomTabPage> {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.photo),
-            title: Text("Photo"),
+            icon: Icon(Icons.home),
+            title: Text("Home"),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            title: Text("Member"),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.map),
-            title: Text("Map"),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            title: Text("Favorite"),
+            title: Text("Mission"),
           ),
         ],
         onTap: navigationTapped,
