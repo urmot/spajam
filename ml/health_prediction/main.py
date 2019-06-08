@@ -1,4 +1,6 @@
 from flask import escape
+import predict_model as pm
+
 
 def hello_http(request):
     """HTTP Cloud Function.
@@ -19,4 +21,4 @@ def hello_http(request):
         name = request_args['name']
     else:
         name = 'World'
-    return 'Hello {}!'.format(escape(name))
+    return 'you will be absent at {}!'.format(escape(pm.predict('')))
