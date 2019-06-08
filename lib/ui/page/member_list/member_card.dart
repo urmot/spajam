@@ -5,13 +5,13 @@ import 'package:spajam/ui/widgets/helper.dart';
 
 Widget providerCard(
   String providerImage,
-  String providerName,
   String memberImage,
   String memberName,
   String memberSubName,
+  IconData singInIcon,
 ) =>
     Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 18.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Card(
         elevation: 2.0,
         child: Padding(
@@ -23,21 +23,11 @@ Widget providerCard(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
-                        padding: const EdgeInsets.fromLTRB(8.0, 4.0, 0, 0),
+                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                         child: Row(
                           children: <Widget>[
-                            Image.network(
-                              providerImage,
-                              width: 24,
-                              height: 24,
-                            ),
-                            space(width: 8),
-                            Text(
-                              providerName,
-                              style: TextStyle(
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.w200,
-                              ),
+                            Icon(
+                              singInIcon,
                             ),
                           ],
                         )),
