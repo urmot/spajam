@@ -5,7 +5,10 @@ class UIData {
   //routes
   // static const String splashRoute = "/Splash";
   static const String loginRoute = "/Login";
+  static const String bottomTabRoute = "/BottomTab";
   static const String homeRoute = "/Home";
+  static const String memberListRoute = "/memberList";
+  static const String missionRoute = "/Mission";
 
   //strings
   static const String appName = "Mission Impossible";

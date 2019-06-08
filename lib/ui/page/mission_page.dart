@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MissionPage extends StatefulWidget {
-  final String title;
-  MissionPage({Key key, this.title}) : super(key: key);
+  MissionPage({Key key}) : super(key: key);
 
   @override
   _MissionPageState createState() => _MissionPageState();
@@ -20,9 +19,6 @@ class _MissionPageState extends State<MissionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
