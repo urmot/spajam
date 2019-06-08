@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MemerListPage extends StatefulWidget {
-  final String title;
-  MemerListPage({Key key, this.title}) : super(key: key);
+  MemerListPage({Key key}) : super(key: key);
 
   @override
   _MemerListPageState createState() => _MemerListPageState();
@@ -20,9 +19,6 @@ class _MemerListPageState extends State<MemerListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
