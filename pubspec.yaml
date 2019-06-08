@@ -26,6 +26,7 @@ dependencies:
   google_maps_flutter: ^0.5.16
   location: ^2.3.5
   font_awesome_flutter:
+  firebase_database:
 
 dev_dependencies:
   flutter_test:
