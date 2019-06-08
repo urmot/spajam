@@ -14,9 +14,6 @@ class MissionPage extends StatefulWidget {
 
 class _MissionPageState extends State<MissionPage> {
   LocationData currentLocation;
-
-  // StreamSubscription<LocationData> locationSubscription;
-
   Location _locationService = new Location();
   String error;
 
@@ -36,9 +33,17 @@ class _MissionPageState extends State<MissionPage> {
   }
 
   Completer<GoogleMapController> _controller = Completer();
+  Map<MarkerId, Marker> markers = <MarkerId, Marker>{};
 
   void _onMapCreated(GoogleMapController controller) {
-    _controller.complete(controller);
+    // _controller.complete(controller);
+    setState(() {
+      Marker marker = Marker(
+        markerId: MarkerId('111'),
+        position: LatLng(35.6580339, 139.7016358),
+      );
+      markers[MarkerId('111')] = marker;
+    });
   }
 
   @override
@@ -63,6 +68,7 @@ class _MissionPageState extends State<MissionPage> {
                 ),
                 myLocationEnabled: true,
                 mapType: MapType.hybrid,
+                markers: markers.values.toSet(),
               ),
             ),
           ],
