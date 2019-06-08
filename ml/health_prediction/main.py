@@ -3,7 +3,7 @@ import predict_model as pm
 import json
 
 
-def hello_http(request):
+def predict_attend(request):
     """HTTP Cloud Function.
     Args:
         request (flask.Request): The request object.
