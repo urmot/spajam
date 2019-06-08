@@ -1,4 +1,1 @@
-
-
-def predict(request):
-    return "%"
+from .model import predict

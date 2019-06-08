@@ -21,4 +21,4 @@ def hello_http(request):
         name = request_args['name']
     else:
         name = 'World'
-    return 'you will be absent at {}!'.format(escape(pm.predict('')))
+    return 'you will be absent at {}!'.format(pm.predict(''))
