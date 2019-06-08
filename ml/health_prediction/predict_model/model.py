@@ -19,8 +19,8 @@ def predict(request):
     return {
         "id": "attend",
         "predict": int(result[0]),
-        "score": float(round(predict_rate[0][0], 3)),
-        "percentage": float(round(predict_rate[0][0], 3) * 100)
+        "score": float(round(predict_rate[0][1], 3)),
+        "percentage": float(round(predict_rate[0][1], 3) * 100)
     }
 
 
