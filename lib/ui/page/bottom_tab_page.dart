@@ -19,7 +19,7 @@ class _BottomTabPageState extends State<BottomTabPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(
-        title: new Text('{Project Title}'),
+        title: new Text('{プロジェクトタイトル}'),
       ),
       body: PageView(
         children: <Widget>[
