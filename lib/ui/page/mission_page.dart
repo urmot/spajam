@@ -1,5 +1,8 @@
+library firebase_database;
+
 import 'dart:async';
 
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -12,6 +15,25 @@ class MissionPage extends StatefulWidget {
   _MissionPageState createState() => _MissionPageState();
 }
 
+// class LatLngLog {
+//   String key;
+//   double lat;
+//   double lng;
+
+//   LatLngLog(this.lat, this.lng);
+//   LatLngLog.fromSnapShot(DataSnapshot snapshot)
+//       : key = snapshot.key,
+//         lat = snapshot.value['lat'],
+//         lng = snapshot.value['lng'];
+
+//   toJson() {
+//     return {
+//       "lat": lat,
+//       "lng": lng,
+//     };
+//   }
+// }
+
 class _MissionPageState extends State<MissionPage> {
   LocationData currentLocation;
   Location _locationService = new Location();
@@ -21,6 +43,9 @@ class _MissionPageState extends State<MissionPage> {
   void initState() {
     super.initState();
 
+    final databaseReference = FirebaseDatabase.instance.reference();
+    print(databaseReference.child("spajam-lev"));
+
     initPlatformState();
     _locationService.onLocationChanged().listen((LocationData result) async {
       setState(() {
@@ -29,6 +54,8 @@ class _MissionPageState extends State<MissionPage> {
 
       print(currentLocation.latitude);
       print(currentLocation.longitude);
+
+      // LatLngLog(currentLocation.latitude, currentLocation.longitude);
     });
   }
 
