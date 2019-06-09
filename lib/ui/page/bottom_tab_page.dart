@@ -14,8 +14,6 @@ class BottomTabPage extends StatefulWidget {
 class _BottomTabPageState extends State<BottomTabPage> {
   PageController _pageController;
   var _page = 0;
-  bool _isAuthorized = false;
-  FirebaseFirestoreService db = new FirebaseFirestoreService();
 
   @override
   Widget build(BuildContext context) {
