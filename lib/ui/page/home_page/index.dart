@@ -74,7 +74,7 @@ Widget storyMembersCard(Size deviceSize) => SizedBox(
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
                                     image: Image.network(
-                                            'https://ca.slack-edge.com/T7KQHUNQ3-UAG3RV135-e279defef603-72')
+                                            'https://ca.slack-edge.com/T7KQHUNQ3-U7M0T2A3H-9db160da4099-72')
                                         .image,
                                   )),
                             ),
@@ -83,7 +83,7 @@ Widget storyMembersCard(Size deviceSize) => SizedBox(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: <Widget>[
                                 Text(
-                                  "42",
+                                  "19.7",
                                   style: TextStyle(
                                     color: Colors.redAccent,
                                     fontWeight: FontWeight.w600,
