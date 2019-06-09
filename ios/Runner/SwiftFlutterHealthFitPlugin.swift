@@ -27,39 +27,12 @@ public class SwiftFlutterHealthFitPlugin: NSObject, FlutterPlugin {
         if call.method == "getActivity"{
             self.getActivity(call, result: result)
         }
-        
-        if call.method == "getBasicHealthData" {
-            self.getBasicHealthData(result: result)
+
+        if call.method == "getSleepAnalysis" {
+            self.getSleepAnalysis(call, result: result)
         }
     }
-    
-    func getBasicHealthData(result: @escaping FlutterResult){
-        let dob = HealthkitReader.sharedInstance.getDOB()
-        let gender = HealthkitReader.sharedInstance.getBioLogicalSex()
-        HealthkitReader.sharedInstance.getLastWeightReading(){
-            (aWeight:Double?) in
-            HealthkitReader.sharedInstance.getLastHeightReading(){
-                (aHeight:Double?) in
-                var dic = Dictionary<String,Any>()
-                if dob != nil {
-                    dic["dob"] = dob!.description
-                }
-                if gender != nil {
-                    dic["gender"] = gender!.asServerParam
-                }
-                
-                if aWeight != nil {
-                    dic["weight"] = aWeight!
-                }
-                
-                if aHeight != nil {
-                    dic["height"] = aHeight!
-                }
-                result(dic)
-            }
-        }
-    }
-    
+ 
     func getActivity(_ call: FlutterMethodCall, result: @escaping FlutterResult){
         guard let params = call.arguments as? Dictionary<String,String> else {
             result(nil)
@@ -79,16 +52,18 @@ public class SwiftFlutterHealthFitPlugin: NSObject, FlutterPlugin {
         
         var type: HKQuantityTypeIdentifier;
         switch metric {
-        case "steps":
-            type = HKQuantityTypeIdentifier.stepCount
-        case "cycling":
-            type = HKQuantityTypeIdentifier.distanceCycling
-        case "walkRun":
-            type = HKQuantityTypeIdentifier.distanceWalkingRunning
-        case "flights":
-            type = HKQuantityTypeIdentifier.flightsClimbed
+//        case "steps":
+//            type = HKQuantityTypeIdentifier.stepCount
+//        case "cycling":
+//            type = HKQuantityTypeIdentifier.distanceCycling
+//        case "walkRun":
+//            type = HKQuantityTypeIdentifier.distanceWalkingRunning
+//        case "flights":
+//            type = HKQuantityTypeIdentifier.flightsClimbed
         case "heartRate":
             type = HKQuantityTypeIdentifier.heartRate
+        case "bodyTemperature":
+            type = HKQuantityTypeIdentifier.bodyTemperature
         default:
             result(["errorCode": "4040", "error": "unsupported type"])
             return;
@@ -112,10 +87,19 @@ public class SwiftFlutterHealthFitPlugin: NSObject, FlutterPlugin {
                 result([])
             }
         }
-        
     }
     
-    
+    func getSleepAnalysis(_ call: FlutterMethodCall, result: @escaping FlutterResult){
+        HealthkitReader.sharedInstance.getSleepAnalysis() { results in
+            if let data = results {
+                result(data)
+                return
+            } else {
+                result([])
+            }
+        }
+    }
+
 }
 
 extension Date {
