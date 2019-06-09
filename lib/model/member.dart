@@ -62,7 +62,7 @@ class Member {
     this._name = map['name'];
     this._tel = map['tel'];
     this._image = map['image'];
-    this._participationRate = map['participationRate'];
+    this._participationRate = map['participationRate'].toDouble();
     this._isActiveHealth = map['isActiveHealth'];
     this._isParticipation = map['isParticipation'];
     this._isActiveMap = map['isActiveMap'];
