@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:spajam/ui/page/member_list/member_card.dart';
 import 'package:spajam/model/member.dart';
@@ -51,7 +53,9 @@ class _MemerListPageState extends State<MemerListPage> {
   // bool isActiveMap,
   Widget body(BuildContext context) => SingleChildScrollView(
         child: Column(
-            children: this.items.map<Widget>(
+            children: this
+                .items
+                .map<Widget>(
                   (item) => providerCard(
                         item.image,
                         item.name,
@@ -62,7 +66,8 @@ class _MemerListPageState extends State<MemerListPage> {
                         item.isActiveHealth,
                         item.isActiveMap,
                       ),
-                )),
+                )
+                .toList()),
       );
 
   @override
