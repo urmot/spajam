@@ -3,7 +3,7 @@ class Member {
   String _name;
   String _tel;
   String _image;
-  String _participationRate;
+  double _participationRate;
   bool _isActiveHealth;
   bool _isParticipation;
   bool _isActiveMap;
@@ -35,7 +35,7 @@ class Member {
   String get name => _name;
   String get tel => _tel;
   String get image => _image;
-  String get participationRate => _participationRate;
+  double get participationRate => _participationRate;
   bool get isActiveHealth => _isActiveHealth;
   bool get isParticipation => _isParticipation;
   bool get isActiveMap => _isActiveMap;
