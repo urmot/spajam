@@ -18,7 +18,7 @@ class FirebaseFirestoreService {
       String name,
       String tel,
       String image,
-      String participationRate,
+      double participationRate,
       bool isParticipation,
       bool isActive,
       bool isActiveHealth,
@@ -65,12 +65,12 @@ class FirebaseFirestoreService {
     return snapshots;
   }
 
-  Future<dynamic> updateMember(Member member) async {
+  Future<dynamic> updateMember(dynamic member) async {
+    print(member);
     final TransactionHandler updateTransaction = (Transaction tx) async {
       final DocumentSnapshot ds =
-          await tx.get(memberCollection.document(member.id));
-
-      await tx.update(ds.reference, member.toMap());
+          await tx.get(memberCollection.document(member["id"]));
+      if (ds.exists) await tx.update(ds.reference, member);
       return {'updated': true};
     };
 

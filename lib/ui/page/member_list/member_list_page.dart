@@ -51,7 +51,7 @@ class _MemerListPageState extends State<MemerListPage> {
                       item.name,
                       item.tel,
                       item.isActive,
-                      item.participationRate,
+                      item.participationRate.toString(),
                       item.isParticipation,
                       item.isActiveHealth,
                       item.isActiveMap,

@@ -29,6 +29,7 @@ dependencies:
   font_awesome_flutter:
   firebase_database:
   firebase_storage:
+  http:
 
 
 dev_dependencies:
