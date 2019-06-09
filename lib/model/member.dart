@@ -7,9 +7,18 @@ class Member {
   bool _isActiveHealth;
   bool _isParticipation;
   bool _isActiveMap;
+  bool _isActive;
 
-  Member(this._id, this._name, this._tel, this._image, this._participationRate,
-      this._isParticipation, this._isActiveHealth, this._isActiveMap);
+  Member(
+      this._id,
+      this._name,
+      this._tel,
+      this._image,
+      this._participationRate,
+      this._isParticipation,
+      this._isActive,
+      this._isActiveHealth,
+      this._isActiveMap);
 
   Member.map(dynamic obj) {
     this._id = obj['id'];
@@ -30,6 +39,7 @@ class Member {
   bool get isActiveHealth => _isActiveHealth;
   bool get isParticipation => _isParticipation;
   bool get isActiveMap => _isActiveMap;
+  bool get isActive => _isActive;
 
   Map<String, dynamic> toMap() {
     var map = new Map<String, dynamic>();
@@ -43,6 +53,7 @@ class Member {
     map['isParticipation'] = _isParticipation;
     map['isActiveHealth'] = _isActiveHealth;
     map['isActiveMap'] = _isActiveMap;
+    map['isActive'] = _isActive;
     return map;
   }
 
@@ -51,9 +62,10 @@ class Member {
     this._name = map['name'];
     this._tel = map['tel'];
     this._image = map['image'];
-    this._participationRate = map['_participationRate'];
-    this._isActiveHealth = map['_isActiveHealth'];
+    this._participationRate = map['participationRate'];
+    this._isActiveHealth = map['isActiveHealth'];
     this._isParticipation = map['isParticipation'];
-    this._isActiveMap = map['_isActiveMap'];
+    this._isActiveMap = map['isActiveMap'];
+    this._isActive = map['isActive'];
   }
 }

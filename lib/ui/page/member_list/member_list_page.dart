@@ -40,35 +40,26 @@ class _MemerListPageState extends State<MemerListPage> {
 
   Size deviceSize;
 
-  // final String image;
-
-  // MemerListPage({this.image, Key key}) : super(key: key);
-  // String memberImage,
-  // String memberName,
-  // String memberNumber,
-  // bool isActive,
-  // String participationRate,
-  // bool isParticipation,
-  // bool isActiveHealth,
-  // bool isActiveMap,
-  Widget body(BuildContext context) => SingleChildScrollView(
-        child: Column(
-            children: this
-                .items
-                .map<Widget>(
-                  (item) => providerCard(
-                        item.image,
-                        item.name,
-                        item.tel,
-                        true,
-                        item.participationRate,
-                        item.isParticipation,
-                        item.isActiveHealth,
-                        item.isActiveMap,
-                      ),
-                )
-                .toList()),
-      );
+  Widget body(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+          children: this
+              .items
+              .map<Widget>(
+                (item) => providerCard(
+                      item.image,
+                      item.name,
+                      item.tel,
+                      item.isActive,
+                      item.participationRate,
+                      item.isParticipation,
+                      item.isActiveHealth,
+                      item.isActiveMap,
+                    ),
+              )
+              .toList()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

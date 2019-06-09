@@ -20,13 +20,22 @@ class FirebaseFirestoreService {
       String image,
       String participationRate,
       bool isParticipation,
+      bool isActive,
       bool isActiveHealth,
       bool isActiveMap) async {
     final TransactionHandler createTransaction = (Transaction tx) async {
       final DocumentSnapshot ds = await tx.get(memberCollection.document());
 
-      final Member member = new Member(ds.documentID, name, tel, image,
-          participationRate, isParticipation, isActiveHealth, isActiveMap);
+      final Member member = new Member(
+          ds.documentID,
+          name,
+          tel,
+          image,
+          participationRate,
+          isParticipation,
+          isActive,
+          isActiveHealth,
+          isActiveMap);
       final Map<String, dynamic> data = member.toMap();
 
       await tx.set(ds.reference, data);
