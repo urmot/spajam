@@ -2,6 +2,15 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 
+enum _ActivityType {
+  steps,
+  cycling,
+  walkRun,
+  heartRate,
+  flights,
+  bodyTemperature
+}
+
 class FlutterHealthFit {
   static const MethodChannel _channel =
       const MethodChannel('flutter_health_fit');
@@ -16,18 +25,24 @@ class FlutterHealthFit {
   }
 
   static Future<double> get getBodyTemperature async {
-    return await _getTemperatureData();
+    return await _getActivityData(_ActivityType.bodyTemperature, "degC");
+  }
+
+  static Future<double> get getHeartRate async {
+    return await _getActivityData(_ActivityType.heartRate, "count/min");
   }
 
   static Future<int> get getSleepAnalysis async {
     return await _getSleepAnalysis();
   }
 
-  static Future<double> _getTemperatureData() async {
+  static Future<double> _getActivityData(
+      _ActivityType activityType, String units) async {
     var result;
 
     try {
-      result = await _channel.invokeMethod('getTemperature', {});
+      result = await _channel.invokeMethod('getActivity',
+          {"name": activityType.toString().split(".").last, "units": units});
     } catch (e) {
       print(e.toString());
       return null;
@@ -44,9 +59,8 @@ class FlutterHealthFit {
     var result;
 
     try {
-      result = await _channel.invokeMethod('getAnalysis', {});
+      result = await _channel.invokeMethod('getSleepAnalysis', {});
     } catch (e) {
-      print(e.toString());
       return null;
     }
 

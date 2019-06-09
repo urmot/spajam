@@ -27,13 +27,14 @@ class HealthkitReader: NSObject {
     
     func quantityTypesToRead() -> [HKQuantityType]{
         return [
-            HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!,
-            HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)!,
-            HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceCycling)!,
-            HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.basalEnergyBurned)!,
-            HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)!,
-            HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.flightsClimbed)!,
-            HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
+//            HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!,
+//            HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)!,
+//            HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceCycling)!,
+//            HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.basalEnergyBurned)!,
+//            HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)!,
+//            HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.flightsClimbed)!,
+            HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!,
+            HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyTemperature)!
         ]
     }
     
@@ -95,10 +96,44 @@ class HealthkitReader: NSObject {
         }
     }
     
-    
+    func getSleepAnalysis(complition: @escaping (((([String:Any])?) -> Void)) ){
+        if let sleepType = HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis) {
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            let yesterday = Date().yesterday
+            let predicate = HKQuery.predicateForSamples(withStart: yesterday, end: Date().startDay, options: [])
+            let mySortDescriptor = NSSortDescriptor(key:HKSampleSortIdentifierStartDate, ascending: false)
+
+            let mySampleQuery = HKSampleQuery(sampleType: sleepType, predicate: predicate, limit: 1, sortDescriptors: [mySortDescriptor],
+                                              resultsHandler: { (sampleQuery, results, error ) in
+                if let e = error {
+                    print("Error: \(e.localizedDescription)")
+                    complition(["value": 0])
+                    return
+                }
+                // 一番最近に登録されたデータを取得.
+                guard let myRecentSample = results!.first else {
+                    print("error")
+                    complition(["value": 0])
+                    return
+                }
+                let myGoBedTime = myRecentSample.startDate
+                let myWeakUpTime = myRecentSample.endDate
+                // 時間の差から睡眠時間を計算.
+                let mySleepTime = myWeakUpTime.timeIntervalSince(myGoBedTime)
+                // 取得したサンプルを単位に合わせる.
+                //DispatchQueue.main.async {
+                complition(["value": Int(mySleepTime/(60*60))])
+                //}
+            })
+            // queryを発行.
+            self.healthStore.execute(mySampleQuery)
+        }
+    }
+ 
     func requestHealthAuthorization(_ complition:@escaping ((Bool)->())){
         
-        //        HKCategoryType.characteristicType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis)
         
         HKCategoryType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis)
         let healthKitTypesToWrite : Set<HKSampleType> =  [
@@ -106,12 +141,11 @@ class HealthkitReader: NSObject {
         ]
         
         var healthKitTypesToRead : Set<HKObjectType> = [
-            HKCharacteristicType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.biologicalSex)!,
-            HKCharacteristicType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.dateOfBirth)!,
-            //            HKCategoryType.categoryTypeForIdentifier(HKCategoryTypeIdentifierSleepAnalysis)!,
-            HKObjectType.workoutType(),
-            HealthkitReader.weightQuantityType(),
-            HealthkitReader.heightQuantityType(),
+//            HKCharacteristicType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.biologicalSex)!,
+//            HKCharacteristicType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.dateOfBirth)!,
+//            HKObjectType.workoutType(),
+//            HealthkitReader.weightQuantityType(),
+//            HealthkitReader.heightQuantityType(),
             HKCategoryType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis)!
         ]
         
@@ -218,7 +252,8 @@ class HealthkitReader: NSObject {
         }
         return dob
     }
-    
+
+   
     func queryTypeForTimePeriod(_ type:HKQuantityType, fromDate: Date, toDate:Date, completion:@escaping ( (_ results:[HKSample]?)->() ) ) {
         
         let type = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)!

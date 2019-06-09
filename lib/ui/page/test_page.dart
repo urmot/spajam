@@ -26,14 +26,15 @@ class _TestPageState extends State<TestPage> {
     });
   }
 
-  // _getActivityHealthData() async {
-  //   var bodyTemperature = await FlutterHealthFit.getBodyTemperature;
-  //   var sleepAnalysis = await FlutterHealthFit.getSleepAnalysis;
-  //   setState(() {
-  //     _activityData =
-  //         "bodyTemperature: $bodyTemperature\n sleepAnalysis: $sleepAnalysis";
-  //   });
-  // }
+  _getHealthData() async {
+    var bodyTemperature = await FlutterHealthFit.getBodyTemperature;
+    var heartRate = await FlutterHealthFit.getHeartRate;
+    var sleepAnalysis = await FlutterHealthFit.getSleepAnalysis;
+    setState(() {
+      _activityData =
+          "bodyTemperature: $bodyTemperature\nheartRate: $heartRate\nsleepAnalysis: $sleepAnalysis";
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,9 +53,8 @@ class _TestPageState extends State<TestPage> {
                   onPressed: () {
                     _authorizeHealthOrFit();
                   }),
-              // RaisedButton(
-              //     child: Text("Get Activity Data"),
-              //     onPressed: _getActivityHealthData),
+              RaisedButton(
+                  child: Text("Get Activity Data"), onPressed: _getHealthData),
               Text('\n$_activityData\n'),
             ],
           ),
