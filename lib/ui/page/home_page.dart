@@ -71,7 +71,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  void _initState() {
+  void initState() {
+    super.initState();
     setState(() {
       _isAuthorized = false;
     });

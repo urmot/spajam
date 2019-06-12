@@ -1,11 +1,10 @@
-import 'dart:developer';
+//import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:spajam/ui/page/member_list/member_card.dart';
 import 'package:spajam/model/member.dart';
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 import 'package:spajam/services/firestore.dart';
 
 class MemerListPage extends StatefulWidget {
